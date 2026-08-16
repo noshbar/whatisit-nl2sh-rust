@@ -1,0 +1,68 @@
+# Datasets. A blanket rule so a careless `git add -A` cannot pull in raw
+# scrapes, interim processing or processed splits.
+data/
+data/raw/
+data/interim/
+data/processed/
+data/*.jsonl
+data/smoke/
+
+# Model weights, in any format.
+models/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+
+# Job scheduler output.
+slurm_outputs/
+*.out
+*.err
+
+# Local build and runtime products.
+runs/
+target/
+/llama-cli
+/whatisit
+tools/llama.cpp/
+runtime/lib/
+runtime/raw.txt
+scratch/
+
+# Nix build symlink.
+/result
+
+# Ollama models, wherever a script materializes them.
+ollama_models/
+*.ollama/
+
+# Editor / OS cruft.
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Evaluation data derived from real usage: can contain hostnames and paths.
+data/processed/heldout_user*.jsonl
+
+# Batch job scripts. These hardcode a specific scheduler environment and
+# absolute paths, so they are not portable and are not part of the release.
+*.sbatch
+
+# Vendored upstream benchmarks, redistributed under their own licences.
+third_party/
+thirdparty/*
+
+# Training and evaluation pipeline, research notes and manuscript sources.
+# Kept locally; not part of the released tool.
+scripts/
+docs/
+paper/
+handoff/
+campaign/
+
+# Local-only git helpers. Referenced by nothing that ships.
+.gitmessage
+hooks/
